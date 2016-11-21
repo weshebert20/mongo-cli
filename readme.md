@@ -66,6 +66,8 @@ mongo.connect(url, function(err, db){
 })
 ```
 
+> **Note:** It is probably a good idea to test each of these in the `mongo` shell before adding the prompt to `app.js`.
+
 ## Task 1:
 
 Comment out the first prompt and add another prompt to let the user view more information about a specific restaurant, by entering a name.
