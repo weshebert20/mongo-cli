@@ -1,7 +1,6 @@
 # Build a CLI Mongo App w/ Node
 
-_**Note**_ This exercise assumes a `restaurant_db` was created in during the [mongo intro lesson.](https://github.com/ga-wdi-lessons/mongo-intro/)
-If you need are doing this exercise independent of the lesson and need seed data follow the additional setup from [this file.](./seeds.md)
+_**Note**_ If you did not finish creating the restaurants db from the last lesson, and need seed data follow the additional setup from [this file.](./seeds.md)
 
 Your task is to connect to the `restaurant_db` via the `mongodb` node module and
 build a little CLI app that will allow a user to enter commands to query our
@@ -24,13 +23,13 @@ Great, now use an instance of the MongoClient to connect to the `restaurant_db` 
 ```js
 // app.js
 
-var mongo = require("mongodb").MongoClient
-var url = "mongodb://localhost:27017/restaurant_db"
+var mongo = require("mongodb").MongoClient;
+var url = "mongodb://localhost:27017/restaurant_db";
 
 mongo.connect(url, function(err, db){
   var collection = db.collection('restaurants');
   collection.find().toArray(function(err, docs){
-    console.log(docs)
+    console.log(docs);
   })
 })
 ```
@@ -52,29 +51,33 @@ if the user enters in the right input:
 ```js
 // app.js
 
-var mongo = require("mongodb").MongoClient
-var prompt = require("prompt-sync")()
-var url = "mongodb://localhost:27017/restaurant_db"
+var mongo = require("mongodb").MongoClient;
+var prompt = require("prompt-sync")();
+var url = "mongodb://localhost:27017/restaurant_db";
 
 mongo.connect(url, function(err, db){
   var collection = db.collection('restaurants');
-  var number = prompt("Type 1 and press enter to display all restaurants' names: ")
-  if(number == "1"){
+  var userChoice = prompt("Type 'all' and press enter to display all restaurants' names: ");
+  if(userChoice == "all"){
     collection.find().toArray(function(err, doc){
-      console.log(doc)
+      console.log(doc);
     })
   }
 })
 ```
 
-## You do:
+## Task 1:
 
-Add another prompt to let the user view more information about a restaurant.
+Comment out the first prompt and add another prompt to let the user view more information about a specific restaurant, by entering a name.
+
+> **Hint:** How can we use the `.find()` command with a specific name?  You may want to research the [.forEach()](https://docs.mongodb.com/v3.2/reference/method/cursor.forEach/) command.
+
+## Task 2:
+
+Allow users to add their own restaurants.
+
+> **Hint:** You can use a prompt for each property in the `restaurant` object and use `.insert()` to put this object into the DB.
 
 ### Bonus!
 
-Allow users to add their own restaurants
-
-### Double Bonus!
-
-Allow users to edit/delete restaurants
+Allow users to edit/delete restaurants.
