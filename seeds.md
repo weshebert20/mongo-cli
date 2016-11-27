@@ -10,8 +10,8 @@ Then run the following commands in the REPL:
 
 ```
 use restaurant_db
-db.restaurants.remove({});
-db.restaurants.insert([
+db.restaurant_db.remove({});
+db.restaurant_db.insert([
   {
     "name": "Cookies Corner",
     "address": {
