@@ -7,6 +7,7 @@ database.
 ## Setup:
 
 Start by:
+
 1. forking and cloning this exercise
 2. creating a main `js` file, and installing the `mongodb` node module:
 
