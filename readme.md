@@ -6,10 +6,8 @@ database.
 
 ## Setup:
 
-Start by:
-
-1. forking and cloning this exercise
-2. creating a main `js` file, and installing the `mongodb` node module:
+1. Forking and clone this repo
+2. Create a `js` file, and install the `mongodb` node module:
 
 ```bash
 $ touch app.js
